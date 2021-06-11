@@ -1,0 +1,1 @@
+select count(pass.user_id) users (select user_id,from_unix(event_timestamp,'yyyy-MM') month,count(1) passes from event_log group by user_id,from_unix(event_timestamp,'yyyy-MM')) pass where pass.passes>=1000 and pass.passes<2000 and month='2020-09'
